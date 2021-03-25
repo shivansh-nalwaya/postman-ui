@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Input } from "antd";
 import styled from "styled-components";
+import PostmanContext from "../contexts/postman-context";
 
 const Container = styled.div`
   margin-top: 2%;
 `;
 
-const ReqBodyInput = ({ reqBody, setReqBody }) => {
+const ReqBodyInput = () => {
+  const { reqBody, setReqBody } = useContext(PostmanContext);
   return (
     <Container>
       Enter the request body:

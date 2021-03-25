@@ -1,16 +1,20 @@
 import { Button, Input, Select } from "antd";
-import React from "react";
+import React, { useContext } from "react";
+import PostmanContext from "../contexts/postman-context";
 
 const { Option } = Select;
 
-const URLInput = ({ url, setUrl, method, setMethod, loading, onHit }) => {
+const URLInput = () => {
+  const { url, setUrl, method, changeMethod, loading, onHit } = useContext(
+    PostmanContext
+  );
   return (
     <Input
       size="large"
       value={url}
       onChange={(e) => setUrl(e.target.value)}
       addonBefore={
-        <Select value={method} onChange={setMethod}>
+        <Select value={method} onChange={changeMethod}>
           <Option value="GET">GET</Option>
           <Option value="POST">POST</Option>
           <Option value="PUT">PUT</Option>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import PostmanContext from "../contexts/postman-context";
 
 const Container = styled.div`
   margin-top: 2%;
@@ -11,7 +12,8 @@ const Res = styled.pre`
   width: 100%;
 `;
 
-const ResponseView = ({ res, status, isError }) => {
+const ResponseView = () => {
+  const { res, status, isError } = useContext(PostmanContext);
   return (
     <Container>
       <h2>Response:</h2>
